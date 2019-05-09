@@ -1,0 +1,8 @@
+#!/bin/sh
+
+export DISPLAY=:1
+Xvfb :1 -screen 0 800x600x16 &
+
+cd /scigraph/SciGraph-services
+
+mvn exec:java -Dexec.mainClass="io.scigraph.services.MainApplication" -Dexec.args="server /scigraph/conf/$1"

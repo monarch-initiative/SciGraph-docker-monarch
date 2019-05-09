@@ -6,9 +6,9 @@ wget https://raw.githubusercontent.com/monarch-initiative/monarch-cypher-queries
 sed 's/^/    /' curie_map.yaml > curies_indented.yaml
 
 sed -e '/INJECT_CURIES/ {r curies_indented.yaml
-                         d}' monarchConfiguration.yaml.tmpl > monarchConfiguration.yaml.tmp
+                         d}' ./conf/monarchConfiguration.yaml.tmpl > ./conf/monarchConfiguration.yaml.tmp
 
 sed -e '/INJECT_QUERIES/ {r cypher.yaml
-                          d}' monarchConfiguration.yaml.tmp > monarchConfiguration.yaml
+                          d}' ./conf/monarchConfiguration.yaml.tmp > ./conf/monarchConfiguration.yaml
 
-rm monarchConfiguration.yaml.tmp
+rm ./conf/monarchConfiguration.yaml.tmp

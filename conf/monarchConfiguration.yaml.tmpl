@@ -9,7 +9,7 @@ server:
 applicationContextPath: scigraph
 
 graphConfiguration:
-  location: /scigraph/graph
+  location: /data/graph
   indexedNodeProperties:
     - label
   exactNodeProperties:
@@ -19,6 +19,7 @@ graphConfiguration:
     dbms.pagecache.memory : 6g
     dbms.transaction.timeout: 2m
 
-  INJECT_CURIES
+  curies:
+INJECT_CURIES
 
 INJECT_QUERIES

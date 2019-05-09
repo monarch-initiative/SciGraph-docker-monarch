@@ -1,89 +1,3 @@
-graphConfiguration:
-    location: /scigraph/graph
-    neo4jConfig:
-      dump_configuration : true
-      dbms.pagecache.memory : 64G
-
-    indexedNodeProperties:
-      - label
-    exactNodeProperties:
-      - label
-    schemaIndexes:
-      Node :
-        - iri
-
-ontologies:
-  # Monarch ontology
-  - url: /data/201902/owl/monarch-merged.owl
-    reasonerConfiguration:
-      factory: org.semanticweb.elk.owlapi.ElkReasonerFactory
-      addDirectInferredEdges: true
-      addInferredEquivalences: true
-      removeUnsatisfiableClasses: true
-      
-  - url: https://raw.githubusercontent.com/monarch-initiative/GENO-ontology/develop/src/ontology/geno.owl
-    reasonerConfiguration:
-      factory: org.semanticweb.elk.owlapi.ElkReasonerFactory
-      addDirectInferredEdges: true
-      addInferredEquivalences: true
-      removeUnsatisfiableClasses: true
-  
-  # Data sources
-  - url: /data//201902/ttl/mgi.ttl
-  - url: /data//201902/ttl/panther.ttl
-  - url: /data//201902/ttl/clinvar.ttl
-  - url: /data//201902/ttl/ncbigene.ttl
-  - url: /data//201902/ttl/biogrid.ttl
-  - url: /data//201902/ttl/zfin.ttl
-  - url: /data//201902/ttl/ctd.ttl
-  - url: /data//201902/ttl/hpoa.ttl
-  - url: /data//201902/ttl/omim.ttl
-  - url: /data//201902/ttl/coriell.ttl
-  - url: /data//201902/ttl/hgnc.ttl
-  - url: /data//201902/ttl/impc.ttl
-  - url: /data//201902/ttl/ucscbands.ttl
-  - url: /data//201902/ttl/monochrom.ttl
-  - url: /data//201902/ttl/eom.ttl
-  #- url: http://data.monarchinitiative.org/ttl/genereviews.ttl
-  - url: /data//201902/ttl/orphanet.ttl
-  - url: /data//201902/ttl/animalqtldb.ttl
-  - url: /data//201902/ttl/flybase.nt
-  - url: /data//201902/ttl/wormbase.nt
-  - url: /data//201902/ttl/omia.ttl
-  - url: /data//201902/ttl/mmrrc.ttl
-  - url: /data//201902/ttl/gwascatalog.ttl
-  - url: /data//201902/ttl/monarch.ttl
-  - url: /data//201902/ttl/mpd.ttl
-  - url: /data//201902/ttl/go.ttl
-  - url: /data//201902/ttl/mgi_slim.ttl
-  - url: /data//201902/ttl/zfinslim.ttl
-  - url: /data//201902/ttl/reactome.ttl
-  - url: /data//201902/ttl/udp.ttl
-  - url: /data//201902/ttl/bgee.ttl
-  - url: /data//201902/ttl/string.ttl
-  - url: /data//201902/ttl/ensembl.ttl
-  - url: /data//201902/ttl/rgd.ttl
-  - url: /data//201902/ttl/sgd.ttl
-  - url: /data//201902/ttl/mychem.ttl
-  - url: /data//201902/ttl/kegg.ttl
-  
-  # Other ontologies
-  #- url: http://biohackathon.org/resource/faldo.ttl
-  - url: https://raw.githubusercontent.com/OBF/FALDO/master/faldo.ttl
-  - url: http://purl.obolibrary.org/obo/eco.owl
-  - url: http://purl.obolibrary.org/obo/iao.owl
-  - url: https://raw.githubusercontent.com/monarch-initiative/SEPIO-ontology/master/src/ontology/sepio.owl
-  - url: http://purl.obolibrary.org/obo/ero.owl
-  - url: http://purl.obolibrary.org/obo/pw.owl
-  - url: https://raw.githubusercontent.com/jamesmalone/OBAN/master/ontology/oban_core.ttl
-  #- url: http://build.berkeleybop.org/job/build-combined-noctua-models/lastSuccessfulBuild/artifact/noctua-models-noimport.owl
-  - url: http://data.monarchinitiative.org/owl/clo_core.owl
-  - url: http://purl.obolibrary.org/obo/pco.owl
-  - url: http://purl.obolibrary.org/obo/xco.owl
-  - url: http://xmlns.com/foaf/spec/index.rdf
-  - url: http://purl.org/dc/elements/1.1/
-  - url: http://xmlns.com/foaf/0.1/
-
 categories:
     http://purl.obolibrary.org/obo/CL_0000000 : cell
     http://purl.obolibrary.org/obo/UBERON_0001062 : anatomical entity
@@ -122,6 +36,7 @@ categories:
     http://purl.obolibrary.org/obo/OBA_0000001 : phenotype
     http://purl.obolibrary.org/obo/SO_0001483 : snv
     http://purl.obolibrary.org/obo/GENO_0000871 : haplotype
+    http://purl.obolibrary.org/obo/SO_0001024 : haplotype
     http://purl.obolibrary.org/obo/SO_0000340 : chromosome
     http://purl.obolibrary.org/obo/SO_0000104 : protein
     http://purl.obolibrary.org/obo/HP_0000005 : inheritance
@@ -152,7 +67,7 @@ mappedProperties:
   - name: version
     properties:
     - http://www.w3.org/2002/07/owl#versionInfo
-    
+
 cliqueConfiguration:
   relationships:
     - sameAs
@@ -172,7 +87,7 @@ cliqueConfiguration:
     - http://purl.obolibrary.org/obo/ZP_
   leaderForbiddenLabels:
     - anonymous
-  batchCommitSize: 100000 
+  batchCommitSize: 100000
 
 addEdgeLabel: true
 
